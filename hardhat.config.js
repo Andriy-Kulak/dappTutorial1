@@ -16,6 +16,18 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
-module.exports = {
+ module.exports = {
   solidity: "0.8.4",
+  paths: {
+    artifacts: './src/artifacts',
+  },
+  networks: {
+    hardhat: {
+      chainId: 1337
+    },
+    ropsten: {
+      url: process.env.ROPSTEIN_URL,
+      accounts: process.env.ROPSTEIN_ACCOUNT
+    }
+  }
 };
